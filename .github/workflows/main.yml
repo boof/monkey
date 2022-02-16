@@ -43,6 +43,7 @@ jobs:
         key: ${{ runner.os }}-rdoc-${{ hashFiles('docs/created.rid') }}
         restore-keys: |
           ${{ runner.os }}-rdoc-
+    - name: Build RDoc
       run: |
         gem install bundler -v 2.3.3
         bundle install
