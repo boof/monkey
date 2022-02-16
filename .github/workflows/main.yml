@@ -3,7 +3,7 @@ name: Ruby
 on: [push,pull_request]
 
 jobs:
-  build:
+  lint:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -13,6 +13,33 @@ jobs:
         ruby-version: 3.1.0
     - name: Run the default task
       run: |
-        gem install bundler -v 2.2.15
+        gem install bundler -v 2.3.3
         bundle install
-        bundle exec rake
+        bundle exec rake rubocop
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 3.1.0
+    - name: Run the default task
+      run: |
+        gem install bundler -v 2.3.3
+        bundle install
+        bundle exec rake test
+  gh-pages:
+    needs: [lint, test]
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build Documentation
+    - run: |
+        gem install bundler -v 2.3.3
+        bundle install
+        bundle exec rake rdoc
+    - name: Deploy Documentation
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./docs
