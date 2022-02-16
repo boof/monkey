@@ -11,11 +11,18 @@ AllCops:
 Lint/AmbiguousOperatorPrecedence:
   Enabled: false
 
+Lint/ConstantDefinitionInBlock:
+  Exclude:
+    - lib/refinement-monkey/teachings/*.rb
+
 Layout/EmptyLineAfterMagicComment:
   Enabled: false
 
 Layout/LineLength:
   Max: 120
+
+Style/AccessModifierDeclarations:
+  Enabled: false
 
 Style/ClassAndModuleChildren:
   EnforcedStyle: nested
@@ -33,6 +40,5 @@ Style/StringLiteralsInInterpolation:
 
 Naming/FileName:
   Exclude:
-    - lib/refinement-monkey/teachings/*.rb
     - lib/refinement-monkey.rb
     - test/refinement-monkey_test.rb

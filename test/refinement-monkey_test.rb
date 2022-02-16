@@ -26,7 +26,7 @@ Monkey.patch Kernel do
   end
 end
 
-Monkey.learn Array, String
+Monkey.learn :array, :string
 
 class RefinementMonkeyTest < Minitest::Test
   # rubocop:disable Layout/SpaceAroundOperators

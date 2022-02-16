@@ -16,19 +16,19 @@ class RefinementMonkey
       @seen   = Set.new
     end
 
-    def read(owner)
+    def read(name)
       @mutex.synchronize do
-        next if seen.member? owner
+        next if seen.member? name
 
         monkey  = @monkey
         context = Module.new do
           define_method :patch, ->(o, &b) { monkey.patch(o, &b) }
         end
 
-        owner_path = File.join path, "#{owner.name}.rb" # RADAR: inflection #underscore?
+        owner_path = File.join path, "#{name}.rb"
         load owner_path, context
 
-        seen << owner
+        seen << name
       end
     end
   end

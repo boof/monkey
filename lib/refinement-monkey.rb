@@ -21,6 +21,19 @@ class RefinementMonkey
 
   # rubocop:disable Naming/BlockForwarding
 
+  private def collect(object, &)
+    case object
+    when Module
+      [object, Module.new(&)]
+    when Method
+      [object.owner, Module.new { define_singleton_method(object.name, &) }]
+    when UnboundMethod
+      [object.owner, Module.new { define_method(object.name, &) }]
+    else
+      raise ArgumentError
+    end
+  end
+
   # Public: Register a new patch.
   #
   # object - The refined object (eg. Module, Class) or Method (also UnboundMethod).
@@ -45,18 +58,10 @@ class RefinementMonkey
   end
   # rubocop:enable Naming/BlockForwarding
 
-  # Public: Learn new patches, see RefinementMonkey::Teachings.
-  #
-  # names - List of symbols.
-  #
-  # Examples
-  #
-  #   Monkey.learn String, Array
-  #
-  # Returns names.
-  def learn(*names)
-    names.each { @teachings.read _1 }
+  private def read(name)
+    @teachings.read name
   end
+  @instance.__send__ :read, "string"
 
   # Public: Loads all refinements into a Refinements module.
   #
@@ -81,6 +86,7 @@ class RefinementMonkey
   def [](sig)
     Refinements.new @registry.fetch(sig)
   end
+  using @instance["String#underscore"]
 
   # Public: Loads all refinements for owner into a Refinements module.
   #
@@ -91,6 +97,19 @@ class RefinementMonkey
   # Returns a Refinements module.
   def /(owner) # rubocop:disable Naming/BinaryOperatorParameterName
     Refinements.new @registry.values_at(owner)
+  end
+
+  # Public: Learn new patches, see RefinementMonkey::Teachings.
+  #
+  # names - List of symbols.
+  #
+  # Examples
+  #
+  #   Monkey.learn String, Array
+  #
+  # Returns names.
+  def learn(*names)
+    names.each { read _1.to_s.underscore }
   end
 
   # Public: See Registry#pretty_print
@@ -106,20 +125,5 @@ class RefinementMonkey
   # Public: See Registry#to_s
   def to_s
     @registry.to_s
-  end
-
-  private
-
-  def collect(object, &)
-    case object
-    when Module
-      [object, Module.new(&)]
-    when Method
-      [object.owner, Module.new { define_singleton_method(object.name, &) }]
-    when UnboundMethod
-      [object.owner, Module.new { define_method(object.name, &) }]
-    else
-      raise ArgumentError
-    end
   end
 end

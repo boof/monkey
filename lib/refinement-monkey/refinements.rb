@@ -9,7 +9,7 @@ class RefinementMonkey
     #
     # Examples
     #
-    #   RefinementMonkeyPatches/Array + RefinementMonkeyPatches["String#first"]
+    #   RefinementMonkeyPatches/Array | RefinementMonkeyPatches["String#first"]
     #
     # Returns a Refinments module.
     def |(other) end
