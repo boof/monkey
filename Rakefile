@@ -7,7 +7,7 @@ require "rdoc/task"
 RDoc::Task.new do |doc|
   doc.main = "README.md"
   doc.title = "RefinementMonkey #{RefinementMonkey::VERSION} Documentation"
-  doc.rdoc_dir = "doc"
+  doc.rdoc_dir = "docs"
   doc.generator = "sdoc"
   doc.markup = "tomdoc"
   doc.rdoc_files = FileList.new %w[lib/**/*.rb *.md LICENSE.txt]
