@@ -30,13 +30,14 @@ jobs:
         bundle install
         bundle exec rake test
   gh-pages:
+    runs-on: ubuntu-latest
     needs: [lint, test]
     steps:
     - uses: actions/checkout@v2
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
     - name: Build Documentation
-    - run: |
+      run: |
         gem install bundler -v 2.3.3
         bundle install
         bundle exec rake rdoc
