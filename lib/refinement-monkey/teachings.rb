@@ -2,6 +2,7 @@
 
 require "set"
 
+# :markup: TomDoc
 class RefinementMonkey
   class Teachings
     PATH = File.join __dir__, "teachings"

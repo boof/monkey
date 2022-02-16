@@ -1,12 +1,12 @@
 # frozen_string_literal: true
-# :markup: TomDoc
 
 require "refinement-monkey/method_wrapper"
 require "refinement-monkey/refinements"
-require "refinement-monkey/registry"
+require "refinement-monkey/repository"
 require "refinement-monkey/teachings"
 require "refinement-monkey/version"
 
+# :markup: TomDoc
 class RefinementMonkey
   Error = Module.new
   ArgumentError = Class.new(::ArgumentError) { include Error }
@@ -14,8 +14,8 @@ class RefinementMonkey
   NoMethodError = Class.new(::NoMethodError) { include Error }
 
   def initialize(path: nil)
-    @registry  = Registry.new
-    @teachings = Teachings.new self, **{ path: }.compact
+    @repository = Repository.new
+    @teachings  = Teachings.new self, **{ path: }.compact
   end
   @instance = new
 
@@ -52,7 +52,7 @@ class RefinementMonkey
   # Returns nothing.
   def patch(object, &block)
     owner, collection = collect object, &block
-    MethodWrapper.each_method(owner, collection) { @registry.patches _1 }
+    MethodWrapper.each_method(owner, collection) { @repository.commit _1 }
 
     nil
   end
@@ -71,7 +71,7 @@ class RefinementMonkey
   #
   # Returns a Refinements module.
   def patches
-    Refinements.new @registry.values
+    Refinements.new @repository.values
   end
 
   # Public: Loads specific method matching sig into a Refinements module.
@@ -84,7 +84,7 @@ class RefinementMonkey
   #
   # Returns a Refinements module.
   def [](sig)
-    Refinements.new @registry.fetch(sig)
+    Refinements.new @repository.fetch(sig)
   end
   using @instance["String#underscore"]
 
@@ -96,7 +96,7 @@ class RefinementMonkey
   #
   # Returns a Refinements module.
   def /(owner) # rubocop:disable Naming/BinaryOperatorParameterName
-    Refinements.new @registry.values_at(owner)
+    Refinements.new @repository.values_at(owner)
   end
 
   # Public: Learn new patches, see RefinementMonkey::Teachings.
@@ -112,18 +112,24 @@ class RefinementMonkey
     names.each { read _1.to_s.underscore }
   end
 
-  # Public: See Registry#pretty_print
+  # Public: Support for PP output.
+  #
+  # Returns a pretty printed Array of all registered patches.
   def pretty_print(...)
-    @registry.pretty_print(...)
+    @repository.pretty_print(...)
   end
 
-  # Public: See Registry#inspect
+  # Public: Inspects all registered methods.
+  #
+  # Returns a inspected Array of all registered patches.
   def inspect
-    @registry.inspect
+    @repository.inspect
   end
 
-  # Public: See Registry#to_s
+  # Public: Lists all signatures.
+  #
+  # Returns all signatures of commited methods.
   def to_s
-    @registry.to_s
+    @repository.to_s
   end
 end

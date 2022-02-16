@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# :markup: TomDoc
 class RefinementMonkey
   class MethodWrapper
     def self.each_method(owner, source)

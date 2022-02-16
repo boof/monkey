@@ -15,9 +15,6 @@ Lint/ConstantDefinitionInBlock:
   Exclude:
     - lib/refinement-monkey/teachings/*.rb
 
-Layout/EmptyLineAfterMagicComment:
-  Enabled: false
-
 Layout/LineLength:
   Max: 120
 

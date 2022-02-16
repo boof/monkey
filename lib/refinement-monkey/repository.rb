@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
+# :markup: TomDoc
 class RefinementMonkey
-  class Registry
+  class Repository
     include Enumerable
 
     def initialize
@@ -9,7 +10,7 @@ class RefinementMonkey
       @sig = {}
     end
 
-    def patches(method)
+    def commit(method)
       @map[method.owner][method.name] = @sig[method.sig] = method
     end
 
@@ -35,26 +36,17 @@ class RefinementMonkey
       @sig.fetch(sig).then { group_by_target [_1] }
     rescue ::KeyError
       owner, method = sig.split(/[.#]/)
-      raise NoMethodError, "undefined method `#{method}' for #{owner}" # RADAR: Did you mean?
+      raise NoMethodError, "undefined method `#{method}' for #{owner}"
     end
 
-    # Public: Support for PP output.
-    #
-    # Returns a pretty printed Array of all registered patches.
     def pretty_print(...)
       @map.flat_map { |_, m| m.values.map { _1.pretty_print(...) } }.pretty_print(...)
     end
 
-    # Public: Inspects all registered methods.
-    #
-    # Returns a inspected Array of all registered patches.
     def inspect
       @map.flat_map { |_, m| m.values }.inspect
     end
 
-    # Public: Lists all signatures.
-    #
-    # Returns an Array of signatures of all registered patches.
     def to_s
       @map.flat_map { |_, m| m.values.map(&:sig) }.to_s
     end

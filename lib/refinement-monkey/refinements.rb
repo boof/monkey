@@ -1,6 +1,6 @@
 # frozen_string_literal: true
-# :markup: TomDoc
 
+# :markup: TomDoc
 class RefinementMonkey
   module Refinements
     # Public: Merge with another Refinments module.
