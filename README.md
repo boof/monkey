@@ -7,7 +7,7 @@ Monkey that manages your refinements and helps you to refine them into unique re
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'refinement-monkey'
+gem "refinement-monkey"
 ```
 
 And then execute:

@@ -38,11 +38,27 @@ class RefinementMonkey
       @callable = callable
     end
 
+    # Composes a method signature from owner's and method's name, but w/o arguments.
+    #
+    # Examples
+    #
+    #   "Monkey::MethodWrapper.each_method"
+    #   "Monkey::MethodWrapper#sig"
+    #
+    # Returns method signature w/o arguments.
     def sig
       "#{@owner.name}#{name}"
     end
     alias to_s sig
 
+    # Composes method inspection.
+    #
+    # Examples
+    #
+    #   "Monkey::MethodWrapper.each_method[2] at .../lib/refinement-monkey/method_wrapper.rb:6"
+    #   "Monkey::MethodWrapper#inspect[0] at .../lib/refinement-monkey/method_wrapper.rb:62"
+    #
+    # Returns method signature.
     def inspect
       "#{self}[#{@callable.arity}] at #{@callable.source_location.join ":"}"
     end
