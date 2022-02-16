@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>RefinementMonkey</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="RefinementMonkey">
+
+  
+
+    <meta name="keywords" content="RefinementMonkey class">
+  
+    <meta name="keywords" content="new, patch, learn, patches, [], /, pretty_print, inspect, to_s">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            RefinementMonkey
+            
+                <span class="parent">&lt;
+                    
+                    <a href="Object.html">Object</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/lib/refinement-monkey_rb.html">lib/refinement-monkey.rb</a></li>
+            
+            <li><a href="../files/lib/refinement-monkey/method_wrapper_rb.html">lib/refinement-monkey/method_wrapper.rb</a></li>
+            
+            <li><a href="../files/lib/refinement-monkey/refinements_rb.html">lib/refinement-monkey/refinements.rb</a></li>
+            
+            <li><a href="../files/lib/refinement-monkey/registry_rb.html">lib/refinement-monkey/registry.rb</a></li>
+            
+            <li><a href="../files/lib/refinement-monkey/teachings_rb.html">lib/refinement-monkey/teachings.rb</a></li>
+            
+            <li><a href="../files/lib/refinement-monkey/version_rb.html">lib/refinement-monkey/version.rb</a></li>
+            
+        </ul>
+    </div>
+    <main id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+    <!-- Sections -->
+    <div class="sectiontitle">Sections</div>
+    <ul>
+      
+        <li><a href="#Public">Public</a></li>
+      
+    </ul>
+  
+
+
+  
+    <!-- Namespace -->
+    <div class="sectiontitle">Namespace</div>
+    <ul>
+      
+        <li>
+          <span class="type">MODULE</span>
+          <a href="RefinementMonkey/Refinements.html">RefinementMonkey::Refinements</a>
+        </li>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="RefinementMonkey/MethodWrapper.html">RefinementMonkey::MethodWrapper</a>
+        </li>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="RefinementMonkey/Registry.html">RefinementMonkey::Registry</a>
+        </li>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="RefinementMonkey/Teachings.html">RefinementMonkey::Teachings</a>
+        </li>
+      
+    </ul>
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>#</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-2F">/</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-5B-5D">[]</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-inspect">inspect</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>L</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-learn">learn</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>P</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-patch">patch</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-patches">patches</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-pretty_print">pretty_print</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-to_s">to_s</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">Error</td>
+            <td>=</td>
+            <td class="attr-value">Module.new</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">ArgumentError</td>
+            <td>=</td>
+            <td class="attr-value">Class.new(::ArgumentError) { include Error }</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">KeyError</td>
+            <td>=</td>
+            <td class="attr-value">Class.new(::KeyError)      { include Error }</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">NoMethodError</td>
+            <td>=</td>
+            <td class="attr-value">Class.new(::NoMethodError) { include Error }</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">VERSION</td>
+            <td>=</td>
+            <td class="attr-value">&quot;0.1.0&quot;</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(path: nil)
+            
+            <a href="../classes/RefinementMonkey.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/refinement-monkey.rb, line 16</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-value">path:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@registry</span>  = <span class="ruby-constant">Registry</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@teachings</span> = <span class="ruby-constant">Teachings</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">self</span>, <span class="ruby-operator">**</span>{ <span class="ruby-value">path:</span> }.<span class="ruby-identifier">compact</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+    
+  
+
+    
+      <div class="contenttitle" id="Public">
+        Public
+      </div>
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-2F">
+            
+              <b>/</b>(owner)
+            
+            <a href="../classes/RefinementMonkey.html#method-i-2F" name="method-i-2F" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Loads all refinements for owner into a <a href="RefinementMonkey/Refinements.html"><code>Refinements</code></a> module.</p>
+
+<h3 id="method-i-2F-label-Examples">Examples</h3>
+
+<pre><code>using Monkey/String
+</code></pre>
+
+<h3 id="method-i-2F-label-Returns">Returns</h3>
+
+<p>Returns a <a href="RefinementMonkey/Refinements.html"><code>Refinements</code></a> module.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-2F_source')" id="l_method-i-2F_source">show</a>
+                
+              </p>
+              <div id="method-i-2F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/refinement-monkey.rb, line 92</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">/</span>(<span class="ruby-identifier">owner</span>) <span class="ruby-comment"># rubocop:disable Naming/BinaryOperatorParameterName</span>
+  <span class="ruby-constant">Refinements</span>.<span class="ruby-identifier">new</span> <span class="ruby-ivar">@registry</span>.<span class="ruby-identifier">values_at</span>(<span class="ruby-identifier">owner</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-5B-5D">
+            
+              <b>[]</b>(sig)
+            
+            <a href="../classes/RefinementMonkey.html#method-i-5B-5D" name="method-i-5B-5D" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Loads specific method matching sig into a <a href="RefinementMonkey/Refinements.html"><code>Refinements</code></a> module.</p>
+<dl class="rdoc-list note-list"><dt>sig
+<dd>
+<p>Signature for specific method.</p>
+</dd></dl>
+
+<h3 id="method-i-5B-5D-label-Examples">Examples</h3>
+
+<pre><code>using Monkey[&quot;Array#min_of&quot;]
+</code></pre>
+
+<h3 id="method-i-5B-5D-label-Returns">Returns</h3>
+
+<p>Returns a <a href="RefinementMonkey/Refinements.html"><code>Refinements</code></a> module.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-5B-5D_source')" id="l_method-i-5B-5D_source">show</a>
+                
+              </p>
+              <div id="method-i-5B-5D_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/refinement-monkey.rb, line 81</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">[]</span>(<span class="ruby-identifier">sig</span>)
+  <span class="ruby-constant">Refinements</span>.<span class="ruby-identifier">new</span> <span class="ruby-ivar">@registry</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">sig</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-inspect">
+            
+              <b>inspect</b>()
+            
+            <a href="../classes/RefinementMonkey.html#method-i-inspect" name="method-i-inspect" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>See <a href="RefinementMonkey/Registry.html#method-i-inspect"><code>Registry#inspect</code></a></p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-inspect_source')" id="l_method-i-inspect_source">show</a>
+                
+              </p>
+              <div id="method-i-inspect_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/refinement-monkey.rb, line 102</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">inspect</span>
+  <span class="ruby-ivar">@registry</span>.<span class="ruby-identifier">inspect</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-learn">
+            
+              <b>learn</b>(*names)
+            
+            <a href="../classes/RefinementMonkey.html#method-i-learn" name="method-i-learn" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Learn new patches, see <a href="RefinementMonkey/Teachings.html"><code>RefinementMonkey::Teachings</code></a>.</p>
+<dl class="rdoc-list note-list"><dt>names
+<dd>
+<p>List of symbols.</p>
+</dd></dl>
+
+<h3 id="method-i-learn-label-Examples">Examples</h3>
+
+<pre><code>Monkey.learn String, Array
+</code></pre>
+
+<h3 id="method-i-learn-label-Returns">Returns</h3>
+
+<p>Returns names.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-learn_source')" id="l_method-i-learn_source">show</a>
+                
+              </p>
+              <div id="method-i-learn_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/refinement-monkey.rb, line 57</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">learn</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">names</span>)
+  <span class="ruby-identifier">names</span>.<span class="ruby-identifier">each</span> { <span class="ruby-ivar">@teachings</span>.<span class="ruby-identifier">read</span> <span class="ruby-identifier">_1</span> }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-patch">
+            
+              <b>patch</b>(object, &amp;block)
+            
+            <a href="../classes/RefinementMonkey.html#method-i-patch" name="method-i-patch" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Register a new patch.</p>
+<dl class="rdoc-list note-list"><dt>object
+<dd>
+<p>The refined object (eg. Module, Class) or Method (also UnboundMethod).</p>
+</dd></dl>
+
+<h3 id="method-i-patch-label-Examples">Examples</h3>
+
+<pre><code>Monkey.patch Kernel do
+  def pp(*args)
+    ...
+  end
+end
+Monkey.patch Kernel.instance_method(:pp) do
+  ..
+end
+</code></pre>
+
+<h3 id="method-i-patch-label-Returns">Returns</h3>
+
+<p>Returns nothing.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-patch_source')" id="l_method-i-patch_source">show</a>
+                
+              </p>
+              <div id="method-i-patch_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/refinement-monkey.rb, line 40</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">patch</span>(<span class="ruby-identifier">object</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">owner</span>, <span class="ruby-identifier">collection</span> = <span class="ruby-identifier">collect</span> <span class="ruby-identifier">object</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>
+  <span class="ruby-constant">MethodWrapper</span>.<span class="ruby-identifier">each_method</span>(<span class="ruby-identifier">owner</span>, <span class="ruby-identifier">collection</span>) { <span class="ruby-ivar">@registry</span>.<span class="ruby-identifier">patches</span> <span class="ruby-identifier">_1</span> }
+
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-patches">
+            
+              <b>patches</b>()
+            
+            <a href="../classes/RefinementMonkey.html#method-i-patches" name="method-i-patches" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>Loads all refinements into a <a href="RefinementMonkey/Refinements.html"><code>Refinements</code></a> module.</p>
+
+<h3 id="method-i-patches-label-Examples">Examples</h3>
+
+<pre><code>using Monkey.patches
+</code></pre>
+
+<h3 id="method-i-patches-label-Returns">Returns</h3>
+
+<p>Returns a <a href="RefinementMonkey/Refinements.html"><code>Refinements</code></a> module.</p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-patches_source')" id="l_method-i-patches_source">show</a>
+                
+              </p>
+              <div id="method-i-patches_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/refinement-monkey.rb, line 68</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">patches</span>
+  <span class="ruby-constant">Refinements</span>.<span class="ruby-identifier">new</span> <span class="ruby-ivar">@registry</span>.<span class="ruby-identifier">values</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-pretty_print">
+            
+              <b>pretty_print</b>(...)
+            
+            <a href="../classes/RefinementMonkey.html#method-i-pretty_print" name="method-i-pretty_print" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>See <a href="RefinementMonkey/Registry.html#method-i-pretty_print"><code>Registry#pretty_print</code></a></p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-pretty_print_source')" id="l_method-i-pretty_print_source">show</a>
+                
+              </p>
+              <div id="method-i-pretty_print_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/refinement-monkey.rb, line 97</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">pretty_print</span>(<span class="ruby-operator">...</span>)
+  <span class="ruby-ivar">@registry</span>.<span class="ruby-identifier">pretty_print</span>(<span class="ruby-operator">...</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-to_s">
+            
+              <b>to_s</b>()
+            
+            <a href="../classes/RefinementMonkey.html#method-i-to_s" name="method-i-to_s" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>See <a href="RefinementMonkey/Registry.html#method-i-to_s"><code>Registry#to_s</code></a></p>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-to_s_source')" id="l_method-i-to_s_source">show</a>
+                
+              </p>
+              <div id="method-i-to_s_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/refinement-monkey.rb, line 107</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_s</span>
+  <span class="ruby-ivar">@registry</span>.<span class="ruby-identifier">to_s</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </main>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+Wed, 16 Feb 2022 10:23:41 +0100
+lib/refinement-monkey.rb	Wed, 16 Feb 2022 10:19:02 +0100
+lib/refinement-monkey/method_wrapper.rb	Wed, 16 Feb 2022 10:03:33 +0100
+lib/refinement-monkey/refinements.rb	Wed, 16 Feb 2022 10:03:33 +0100
+lib/refinement-monkey/registry.rb	Wed, 16 Feb 2022 10:22:35 +0100
+lib/refinement-monkey/teachings.rb	Wed, 16 Feb 2022 10:16:07 +0100
+lib/refinement-monkey/teachings/Array.rb	Wed, 16 Feb 2022 10:15:54 +0100
+lib/refinement-monkey/teachings/String.rb	Wed, 16 Feb 2022 10:15:58 +0100
+lib/refinement-monkey/version.rb	Wed, 16 Feb 2022 10:03:33 +0100
+CHANGELOG.md	Mon, 07 Feb 2022 10:22:19 +0100
+README.md	Wed, 16 Feb 2022 10:23:41 +0100
+LICENSE.txt	Mon, 07 Feb 2022 10:22:19 +0100

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Object</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <meta property="og:title" value="Object">
+
+  
+
+    <meta name="keywords" content="Object class">
+  
+    <meta name="keywords" content="max_of, min_of, first, last">
+  
+</head>
+
+<body>
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span>
+            Object
+            
+                <span class="parent">&lt;
+                    
+                    BasicObject
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/lib/refinement-monkey/teachings/Array_rb.html">lib/refinement-monkey/teachings/Array.rb</a></li>
+            
+            <li><a href="../files/lib/refinement-monkey/teachings/String_rb.html">lib/refinement-monkey/teachings/String.rb</a></li>
+            
+        </ul>
+    </div>
+    <main id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>F</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-first">first</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>L</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-last">last</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>M</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-max_of">max_of</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-min_of">min_of</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+    
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-first">
+            
+              <b>first</b>(len = 1)
+            
+            <a href="../classes/Object.html#method-i-first" name="method-i-first" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              <p>RefinementMonkeyPatches: Returns first ‘len` characters of self.</p>
+<dl class="rdoc-list note-list"><dt>len
+<dd>
+<p>Number of characters returned.</p>
+</dd></dl>
+
+<h3 id="method-i-first-label-Examples">Examples</h3>
+
+<pre><code>refinement_monkey.learn String
+using refinement_monkey[&quot;String#first&quot;] | refinement_monkey/String
+
+&quot;Hello World!&quot;.first # =&gt; &quot;H&quot;
+&quot;Hello World!&quot;.first 3 # =&gt; &quot;Hel&quot;
+&quot;Hello World!&quot;.first -2 # =&gt; ArgumentError
+</code></pre>
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-first_source')" id="l_method-i-first_source">show</a>
+                
+              </p>
+              <div id="method-i-first_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/refinement-monkey/teachings/String.rb, line 16</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">first</span>(<span class="ruby-identifier">len</span> = <span class="ruby-value">1</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;negative string size&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">len</span>.<span class="ruby-identifier">negative?</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">empty?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">len</span>.<span class="ruby-identifier">zero?</span>
+
+  <span class="ruby-identifier">slice</span>(<span class="ruby-operator">...</span><span class="ruby-identifier">len</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-last">
+            
+              <b>last</b>(len = 1)
+            
+            <a href="../classes/Object.html#method-i-last" name="method-i-last" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-last_source')" id="l_method-i-last_source">show</a>
+                
+              </p>
+              <div id="method-i-last_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/refinement-monkey/teachings/String.rb, line 25</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">last</span>(<span class="ruby-identifier">len</span> = <span class="ruby-value">1</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;negative string size&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">len</span>.<span class="ruby-identifier">negative?</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">empty?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">len</span>.<span class="ruby-identifier">zero?</span>
+
+  <span class="ruby-identifier">slice</span>(<span class="ruby-operator">-</span><span class="ruby-identifier">len</span><span class="ruby-operator">..</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-max_of">
+            
+              <b>max_of</b>(key)
+            
+            <a href="../classes/Object.html#method-i-max_of" name="method-i-max_of" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-max_of_source')" id="l_method-i-max_of_source">show</a>
+                
+              </p>
+              <div id="method-i-max_of_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/refinement-monkey/teachings/Array.rb, line 4</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">max_of</span>(<span class="ruby-identifier">key</span>) = <span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">key</span>).<span class="ruby-identifier">max</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">min_of</span>(<span class="ruby-identifier">key</span>) = <span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">key</span>).<span class="ruby-identifier">min</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-min_of">
+            
+              <b>min_of</b>(key)
+            
+            <a href="../classes/Object.html#method-i-min_of" name="method-i-min_of" class="permalink">Link</a>
+          </div>
+
+          
+            <div class="description">
+              
+            </div>
+          
+
+          
+
+          
+
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source:
+                <a href="javascript:toggleSource('method-i-min_of_source')" id="l_method-i-min_of_source">show</a>
+                
+              </p>
+              <div id="method-i-min_of_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/refinement-monkey/teachings/Array.rb, line 5</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">min_of</span>(<span class="ruby-identifier">key</span>) = <span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">key</span>).<span class="ruby-identifier">min</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+      
+    
+  
+</div>
+
+    </main>
+  </body>
+</html>

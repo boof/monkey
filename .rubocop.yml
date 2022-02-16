@@ -1,0 +1,38 @@
+require: rubocop-minitest
+
+AllCops:
+  TargetRubyVersion: 3.1
+  NewCops: enable
+  Exclude:
+    - bin/*
+    - Guardfile
+    - bak/*
+
+Lint/AmbiguousOperatorPrecedence:
+  Enabled: false
+
+Layout/EmptyLineAfterMagicComment:
+  Enabled: false
+
+Layout/LineLength:
+  Max: 120
+
+Style/ClassAndModuleChildren:
+  EnforcedStyle: nested
+
+Style/Documentation:
+  Enabled: false
+
+Style/StringLiterals:
+  Enabled: true
+  EnforcedStyle: double_quotes
+
+Style/StringLiteralsInInterpolation:
+  Enabled: true
+  EnforcedStyle: double_quotes
+
+Naming/FileName:
+  Exclude:
+    - lib/refinement-monkey/teachings/*.rb
+    - lib/refinement-monkey.rb
+    - test/refinement-monkey_test.rb
